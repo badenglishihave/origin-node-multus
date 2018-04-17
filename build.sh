@@ -3,7 +3,7 @@ echo Building manndavidj/origin-node-multus:build
 
 docker build -t manndavidj/origin-node-multus:build -f Dockerfile.build .
 
-mkdir -p ./opt/cni
+mkdir -p ./opt/cni/bin
 docker container create --name extract manndavidj/origin-node-multus:build  
 docker container cp extract:/usr/src/multus-cni/bin/multus ./opt/cni/bin/
 #docker container cp extract:/usr/src/plugins/bin/* ./opt/cni/bin/
