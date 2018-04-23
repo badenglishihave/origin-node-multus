@@ -1,6 +1,7 @@
 # -------- Import stage.
 FROM openshift/node
 WORKDIR /usr/src/plugins
+COPY ./opt/cni/bin/* /opt/cni/bin/
 ADD multus.conf /multus.conf
 ADD watcher.sh /watcher.sh
 ADD entrypoint.sh /entrypoint.sh
