@@ -1,6 +1,5 @@
 # -------- Import stage.
 FROM openshift/node
-WORKDIR /usr/src/plugins
 COPY ./opt/cni/bin/* /opt/cni/bin/
 ADD multus.conf /multus.conf
 ADD watcher.sh /watcher.sh
@@ -12,5 +11,5 @@ LABEL io.k8s.display-name="OpenShift Origin Node" \
 
 VOLUME /etc/origin/node
 ENV KUBECONFIG=/etc/origin/node/system:node:osmaster-1.kubeconfig
-
+RUN /bin/bash -c 'ls -l /opt/cni/bin; ls -l /'
 ENTRYPOINT [ "/entrypoint.sh" ]
